@@ -1,0 +1,4 @@
+{
+    "account": {"user": "[skypeUser]", "password": "[skypeUserPassword]"}
+    "connection" : {"port": 8180}
+}

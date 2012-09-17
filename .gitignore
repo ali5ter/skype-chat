@@ -1,0 +1,7 @@
+node_modules
+config.json
+*.pyc
+support/skypekit/runtime
+support/skypekit/sdk
+support/skypekit/key.pem
+support/skypekit/SkypeAccount.py

@@ -1,0 +1,11 @@
+{
+    "name"          : "skype-chat",
+    "version"       : "0.0.1",
+    "description"   : "Node.JS interface to Skype chat.",
+    "keywords"      : ["skype", "client"],
+    "author"        : "Alister Lewis-Bowen <alister@different.com>",
+    "main"          : "index",
+    "repository"    : {"type": "git", "url": "git://github.com/ali5ter/skype-chat.git"},
+    "dependencies"  : {"ws": ">=0.4.21"},
+    "engines"       : {"node": ">=0.8.8"}
+}
