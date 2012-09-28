@@ -1,7 +1,6 @@
-!function () {
+(function () {
 
-    var tty = require('tty'),
-        config = require('./config.json'),
+    var config = require('./config.json'),
         skypeChat = require('../index'),
         skype = new skypeChat(config.account),
         session = null,
@@ -27,20 +26,13 @@
                 skype.stop();
             }
         });
-    }
+    };
 
     function log(msg) {
         console.log('[skype_chat test] %s', msg);
     }
 
-    process.stdin.on('keypress', function(chunk, key) {
-        if (key && jey.name === 'c' && key.ctrl) {
-            skype.stop();
-        }
-    });
-
     log('Start a Skype chat session...');
     session = skype.start(onStart);
-    process.stdin.setRawMode();
 
-}();
+}());

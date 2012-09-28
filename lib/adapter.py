@@ -32,7 +32,7 @@ class SkypekitAdapter:
 
     def __init__(self):
         log('Initializing Skypekit adapter')
-        #websocket.enableTrace(True)
+        websocket.enableTrace(True)
         try:
             ws = websocket.WebSocketApp(
                 'ws://localhost:' + port + '/',
