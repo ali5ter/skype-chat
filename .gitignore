@@ -1,6 +1,7 @@
 node_modules
 config.json
 *.pyc
+.*project
 support/skypekit/runtime
 support/skypekit/sdk
 support/skypekit/key.pem
