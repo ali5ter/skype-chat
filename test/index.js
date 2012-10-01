@@ -27,13 +27,18 @@
         });
 
         session.on('message', function (msg) {
+            // TODO: Abstract message object:
+            // * parse JSON object before passing back
+            // * method to create msg object as response
+            // * automatically filter out own messages
+            // * option to filter out old messages
             var _msg = JSON.parse(msg),
                 _response = {
-                    'chat': {'id': _msg.chat.id},
-                    'body': 'Got your message: '+ _msg.body
+                    'body': 'Got your message... '+ _msg.body,
+                    'chat': {'id': config.account.user}
                 };
+            if (_msg.date < now && _msg.chat.id != config.account.user) return;
             log('Message ('+ count + ' of '+ maxMsgs + ') received: ' + msg);
-            if (_msg.date < now) return;
             if (count < maxMsgs) {
                 log('Response sent: ' + JSON.stringify(_response));
                 skype.send(_response);
