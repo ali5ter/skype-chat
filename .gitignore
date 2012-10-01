@@ -5,4 +5,4 @@ config.json
 support/skypekit/runtime
 support/skypekit/sdk
 support/skypekit/key.pem
-support/skypekit/SkypeAccount.py
+test/config.json

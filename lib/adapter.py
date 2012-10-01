@@ -32,7 +32,7 @@ class SkypekitAdapter:
 
     def __init__(self):
         log('Initializing Skypekit adapter')
-        websocket.enableTrace(True)
+        #websocket.enableTrace(True)
         try:
             ws = websocket.WebSocketApp(
                 'ws://localhost:' + port + '/',
@@ -123,7 +123,7 @@ class SkypekitAdapter:
             data = json.loads(message)
             self.sendSkypeMessage(data['chat']['id'], data['body'])
         except Exception as err:
-            log("Failed to parse data received from node: " + err.__str__())
+            log("Failed to parse data received from bridge: " + err.__str__())
 
     def sendSkypeMessage(self, chatName, message):
         log("Sending message to chat with ID " + chatName)
