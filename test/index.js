@@ -23,7 +23,7 @@
         });
 
         session.on('error', function (err) {
-            log('An error occured:' + err);
+            log('An error occured:'+ err);
         });
 
         session.on('message', function (msg) {
@@ -37,13 +37,14 @@
                     'body': 'Got your message... '+ _msg.body,
                     'chat': {'id': config.account.user}
                 };
-            if (_msg.date < now && _msg.chat.id != config.account.user) return;
-            log('Message ('+ count + ' of '+ maxMsgs + ') received: ' + msg);
-            if (count < maxMsgs) {
-                log('Response sent: ' + JSON.stringify(_response));
-                skype.send(_response);
-                count++;
-            } else {
+            log('Message received: '+ msg);
+            //if (_msg.date < now && _msg.chat.id != config.account.user) return;
+            if (_msg.date < now) return;
+            log('Response ('+ count +' of '+ maxMsgs +') sent: '+
+                JSON.stringify(_response));
+            skype.send(_response);
+            count++;
+            if (count > maxMsgs) {
                 skype.stop();
                 process.exit(0);
             }
