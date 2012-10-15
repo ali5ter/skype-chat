@@ -6,8 +6,8 @@ import sys
 import os
 
 def log(message):
-    sys.stdout.write(str(message) + '\n');
-    sys.stdout.flush();
+    sys.stdout.write(str(message) + '\n')
+    sys.stdout.flush()
 
 sys.path.append(os.path.join(os.path.dirname(__file__),
             '../support/skypekit'))
@@ -59,8 +59,8 @@ class SkypekitAdapter:
 
         log("Adapter connected")
 
-        self.user = user;
-        self.password = password;
+        self.user = user
+        self.password = password
 
         try:
             self.MySkype = Skype.GetSkype(
@@ -69,12 +69,12 @@ class SkypekitAdapter:
         except Exception:
             log("Unable to create Skypekit instance")
             raise
-        self.MySkype.Start();
+        self.MySkype.Start()
 
         def accountChange(self, propertyName):
             if propertyName == 'status':
                 if self.status == 'LOGGED_IN':
-                    log('Logged into Skype account');
+                    log('Logged into Skype account')
 
         Skype.Account.OnPropertyChange = accountChange
 
