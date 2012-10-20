@@ -69,10 +69,10 @@ class SkypekitAdapter:
             self.account.LoginWithPassword(self.password, False, False)
         except:
             log('Unable to log into Skype account for: ' + self.user)
-            
+
     def send(self,message,recipient):
         Skype.Skype.GetConversationByIdentity(self.MySkype, recipient).PostText(message)
-        
+
     def stop(self):
         self.MySkype.stop()
 
